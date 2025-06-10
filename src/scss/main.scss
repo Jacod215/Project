@@ -1,0 +1,39 @@
+// Base
+@use 'base/variables' as *;
+@use 'base/mixins' as *;
+@use 'components/cv';
+
+// Reset and normalize
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-primary;
+  line-height: $line-height-base;
+  color: $color-text;
+  background-color: $color-background;
+  font-size: $font-size-base;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  body {
+    background: none;
+  }
+  .cv {
+    padding: 20mm;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

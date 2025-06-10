@@ -1,0 +1,70 @@
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+
+.footer {
+  background: $color-secondary;
+  color: $color-background;
+  padding: $spacing-xl 0;
+
+  &__container {
+    @include container;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-xl;
+  }
+
+  &__section {
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  &__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin-bottom: $spacing-sm;
+    }
+
+    a {
+      color: rgba($color-background, 0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $color-background;
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: $spacing-md;
+    margin-top: $spacing-md;
+
+    a {
+      color: $color-background;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  &__bottom {
+    margin-top: $spacing-xl;
+    padding-top: $spacing-lg;
+    border-top: 1px solid rgba($color-background, 0.1);
+    text-align: center;
+    font-size: 0.875rem;
+    opacity: 0.8;
+  }
+}

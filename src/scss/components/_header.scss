@@ -1,0 +1,20 @@
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  background: rgba($color-background, 0.98);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  &__container {
+    @include container;
+  }
+
+  &__content {
+    @include flex-between;
+    height: 80px;
+  }
+}

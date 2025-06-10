@@ -1,0 +1,67 @@
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+@use 'sass:color';
+
+.hero {
+  padding: $spacing-xl 0;
+  background: linear-gradient(135deg, $color-primary, color.adjust($color-primary, $lightness: -15%));
+  color: $color-background;
+
+  &__container {
+    @include container;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+    align-items: center;
+
+    @include breakpoint-down($breakpoint-md) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+
+  &__text {
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: $spacing-lg;
+      line-height: 1.2;
+
+      @include breakpoint-down($breakpoint-md) {
+        font-size: 2.5rem;
+      }
+    }
+
+    p {
+      font-size: 1.25rem;
+      margin-bottom: $spacing-xl;
+      opacity: 0.9;
+    }
+  }
+
+  &__image {
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &__cta {
+    display: inline-block;
+    padding: $spacing-md $spacing-lg;
+    background: $color-accent;
+    color: $color-background;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
