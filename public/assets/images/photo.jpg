@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="35mm" height="45mm" viewBox="0 0 35 45" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <rect width="35" height="45" fill="#f5f5f5"/>
+    <circle cx="17.5" cy="15" r="8" fill="#cccccc"/>
+    <path d="M2 45 C2 30 33 30 33 45" fill="#cccccc"/>
+    <text x="17.5" y="50" font-family="Arial" font-size="3" fill="#666666" text-anchor="middle">Zdjęcie CV</text>
+</svg>

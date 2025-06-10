@@ -1,0 +1,39 @@
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+
+.grid {
+  @include container;
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: $spacing-md;
+  }
+
+  // Column classes
+  @for $i from 1 through 12 {
+    &__col-#{$i} {
+      grid-column: span $i;
+
+      @include breakpoint-down($breakpoint-md) {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  // Responsive columns
+  @each $breakpoint, $size in (
+    'sm': $breakpoint-sm,
+    'md': $breakpoint-md,
+    'lg': $breakpoint-lg,
+    'xl': $breakpoint-xl
+  ) {
+    @include breakpoint-up($size) {
+      @for $i from 1 through 12 {
+        &__col-#{$breakpoint}-#{$i} {
+          grid-column: span $i;
+        }
+      }
+    }
+  }
+}

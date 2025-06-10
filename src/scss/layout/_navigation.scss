@@ -1,0 +1,68 @@
+@use '../base/mixins' as *;
+@use '../base/variables' as *;
+
+.nav {
+  @include flex-between;
+  padding: $spacing-md 0;
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $color-primary;
+    text-decoration: none;
+  }
+
+  &__menu {
+    @include flex-center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: $spacing-lg;
+
+    @include breakpoint-down($breakpoint-md) {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $color-background;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 100;
+
+      &--active {
+        display: flex;
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__link {
+    color: $color-text;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &--active {
+      color: $color-primary;
+    }
+  }
+
+  &__toggle {
+    display: none;
+    cursor: pointer;
+    z-index: 101;
+
+    @include breakpoint-down($breakpoint-md) {
+      display: block;
+    }
+  }
+}
